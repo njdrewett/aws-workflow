@@ -1,0 +1,32 @@
+name: Terraform Apply
+#Only Run this worklfow on commits to the main branch:
+permissions:
+  id-token: write
+
+on:
+  push:
+    branches:
+      - 'main'
+jobs:
+  TerraformApply:
+    runs-on: Unbtunu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+    # Authenticate to AWS using OIDC
+    - uses: aws-actions/configure-aws_credentials@v1
+      with: 
+        # Specify the IAM role to assume here
+        role-to-asume: arn:aws:iam:123456789012:role/cicd-role 
+        aws-region: eu-west-2
+        
+    # Run Terraform using Hashicorp's setup-terraform Action
+    - uses: hishicorp/setup-terraform@v1
+        with: 
+          terraform_version: 1.3.9
+          terraform_wrapper: false
+      run: |
+        terraform init
+        terraform apply --auto-approve
+      
+
