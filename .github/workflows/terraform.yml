@@ -17,7 +17,7 @@ jobs:
       - uses: aws-actions/configure-aws-credentials@v1
         with: 
           # Specify the IAM role to assume here
-          role-to-assume: arn:aws:iam:123456789012:role/cicd-role 
+          role-to-assume: arn:aws:iam::980308885448:oidc-provider/token.actions.githubusercontent.com 
           aws-region: eu-west-2
         
       # Run Terraform using Hashicorp's setup-terraform Action
