@@ -8,7 +8,7 @@ on:
     branches:
       - 'main'
 jobs:
-  TerraformApply:
+  plan:
     runs-on: Unbtunu-latest
     steps:
       - uses: actions/checkout@v2
