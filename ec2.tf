@@ -29,7 +29,6 @@ resource "aws_launch_configuration" "linux_launch_config" {
   echo "Hello World" > index.html
   nohup busybox httpd -f -p ${var.server_port} &
   EOF
-  user_data_replace_on_change = true
 
   #Required when using asg due to dependency
   lifecycle {
