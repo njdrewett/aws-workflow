@@ -18,19 +18,6 @@
 #   }
 # }
 
-module "oidc_provider" {
-  
-  source = "modules/oidc-provider"
-
-  allowed_repos_branches = [
-    { 
-      org = "njdrewett"
-      repo = "aws-workflow"
-      branch = "main"
-    }
-  ]
-}
-
 
 resource "aws_launch_configuration" "linux_launch_config" {
   image_id        = "ami-0aaa5410833273cfe"
