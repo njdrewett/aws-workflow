@@ -53,7 +53,7 @@ resource "aws_iam_role_policy" "cicd_basic" {
 data "aws_iam_policy_document" "ec2_admin_permissions" {
   statement {
     effect   = "Allow"
-    actions  = ["aws:*"]
+    actions  = ["aws:*", "ec2:*"]
     resources = ["*"]
   }
 }
